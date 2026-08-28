@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Оформлення замовлення — Mate Demo Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span class="brand-name">Mate Demo Shop</span>
+    </div>
+    <div class="topbar-actions">
+      <button type="button" class="icon-btn" id="cart-icon-btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 7h14l-1.5 9h-11L7 7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M7 7 6 3H3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="10" cy="20" r="1.4" fill="currentColor"/>
+          <circle cx="17" cy="20" r="1.4" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="page">
+    <h1 class="page-title">Оформлення замовлення</h1>
+    <p class="page-lead">Перевірте кошик і вкажіть адресу доставки. Після підтвердження зʼявиться вікно з підсумком.</p>
+
+    <div class="layout">
+      <section class="card cart-card" aria-labelledby="cart-heading">
+        <h2 id="cart-heading" class="card-title">Ваш кошик</h2>
+
+        <ul class="cart-list">
+          <li class="cart-item">
+            <div class="thumb thumb-a" aria-hidden="true"></div>
+            <div class="cart-meta">
+              <p class="item-name">Навушники Aura Pro</p>
+              <p class="item-qty">Кількість: 1</p>
+            </div>
+            <p class="item-price">2 499 грн</p>
+          </li>
+          <li class="cart-item">
+            <div class="thumb thumb-b" aria-hidden="true"></div>
+            <div class="cart-meta">
+              <p class="item-name">Чохол Soft Case</p>
+              <p class="item-qty">Кількість: 1</p>
+            </div>
+            <p class="item-price">349 грн</p>
+          </li>
+        </ul>
+
+        <div class="cart-total">
+          <span>Разом</span>
+          <strong>2 848 грн</strong>
+        </div>
+
+        <p class="low-contrast-hint" id="promo-hint">
+          Безкоштовна доставка від 1 000 грн уже застосована до цього замовлення.
+        </p>
+
+        <img
+          class="missing-banner"
+          src="assets/missing-banner.png"
+          alt=""
+          width="1"
+          height="1"
+        />
+
+        <button type="button" class="btn btn-secondary" id="load-discount-btn">
+          Завантажити знижку
+        </button>
+      </section>
+
+      <section class="card form-card" aria-labelledby="address-heading">
+        <h2 id="address-heading" class="card-title">Адреса доставки</h2>
+
+        <form id="checkout-form" novalidate>
+          <div class="field">
+            <label for="full-name">ПІБ</label>
+            <input id="full-name" name="fullName" type="text" autocomplete="name" placeholder="Іван Петренко" />
+          </div>
+
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+380..." />
+            <p class="field-error" id="phone-error" hidden>Невірний формат телефону</p>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="submit-order-btn">
+            Підтвердити замовлення
+          </button>
+
+          <div class="field">
+            <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Місто" />
+          </div>
+
+          <div class="field">
+            <label for="zip">Індекс</label>
+            <input id="zip" name="zip" type="text" autocomplete="postal-code" placeholder="01001" />
+          </div>
+
+          <div class="field">
+            <label for="address">Адреса</label>
+            <input id="address" name="address" type="text" autocomplete="street-address" placeholder="вул. Хрещатик, 1" />
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="confirm-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title" class="modal-title">Підтвердіть адресу</h2>
+      <p class="modal-text">Ми надішлемо замовлення на вказану адресу. Перевірте дані ще раз і підтвердіть.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="modal-close-btn">Закрити</button>
+        <button type="button" class="btn btn-primary" id="modal-ok-btn">Ок</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

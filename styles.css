@@ -80,6 +80,18 @@ body {
   color: var(--accent);
 }
 
+.icon-btn-sm {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
 .page {
   width: min(960px, calc(100% - 2rem));
   margin: 2rem auto 3rem;
@@ -184,12 +196,22 @@ body {
   font-size: 0.92rem;
 }
 
+.banner-slot {
+  height: 120px;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background: #f0ece4;
+  overflow: hidden;
+}
+
+/* img лишається в DOM, щоб запит і 404 нікуди не зникли,
+   але не малюється: іконка зламаного зображення видала б причину
+   ще до того, як студент відкриє Network */
 .missing-banner {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  display: block;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  pointer-events: none;
 }
 
 #checkout-form {
